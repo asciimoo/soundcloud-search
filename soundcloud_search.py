@@ -1,8 +1,27 @@
+#!/usr/bin/env python
+
+'''
+soundcloud_search is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+soundcloud_search is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with soundcloud_search. If not, see < http://www.gnu.org/licenses/ >.
+
+(C) 2013- by Adam Tauber, <asciimoo@gmail.com>
+'''
+
 from json import loads
 from requests import get
 
-guest_client_id = 'b45b1aa10f1ac2941910a7f0d10f8e28'
 
+guest_client_id = 'b45b1aa10f1ac2941910a7f0d10f8e28'
 
 
 def search(query):
@@ -20,6 +39,7 @@ def search(query):
 
         url = doc.get('next_href')
 
+
 def main():
     global search_url
     from sys import argv
@@ -30,6 +50,7 @@ def main():
     query = ' '.join(argv[1:])
     for song_url in search(query):
         print song_url
+
 
 if __name__ == '__main__':
     main()
