@@ -10,11 +10,14 @@ soundcloud search script
 $ python soundcloud_search.py <search terms>
 ```
 
-### as python module
+### python usage
 
 ```python
 >>> import soundcloud_search
 >>> track_urls = soundcloud_search.search('chiptune')
+>>> for track_url in track_urls:
+...     print track_url
+
 ```
 
 
