@@ -32,7 +32,13 @@ def search(query):
     url = search_url % query
 
     while url:
-        doc = loads(get(url).text)
+        response = get(url)
+        if response.status_code != 200:
+            return
+        try:
+            doc = loads(response.text)
+        except:
+            return
         for entity in doc['collection']:
             if entity['kind'] == 'track':
                 yield entity['permalink_url']
